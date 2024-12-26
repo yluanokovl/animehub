@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp7"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        
+        <Label Content="Kovalyova" FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+
+            <StackPanel Margin="20,25,0,0">
+                <ComboBox MaxHeight="25" Width="150" HorizontalAlignment="Left"  Text="All Manufacturers" x:Name="manuComboBox" SelectionChanged="manuComboBox_SelectionChanged" DropDownClosed="manuComboBox_DropDownClosed" />
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Showing"  HorizontalAlignment="Center" />
+                    <Label x:Name="listDispNum" Content="N"  HorizontalAlignment="Center" />
+                    <Label Content="out of"  HorizontalAlignment="Center" />
+                    <Label x:Name="listNum" Content="N"  HorizontalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+            
+            <ComboBox x:Name="sortComboBox" MaxHeight="25" Width="150" HorizontalAlignment="Left" Margin="20,0,0,0" Text="Sort" SelectionChanged="manuComboBox_SelectionChanged" DropDownClosed="manuComboBox_DropDownClosed">
+                <TextBlock Text="Sort" />
+                <TextBlock Text="By Price (Cheap first)" />
+                <TextBlock Text="By Price (Expensive first)" />
+                <TextBlock Text="By Stock (Low in stock first)" />
+                <TextBlock Text="By Stock (High in stock first)" />
+            </ComboBox>
+            
+            <Button Content="Добавить" MaxHeight="25" Width="150" Margin="20,0,0,0"/>
+        </StackPanel>
+        <Button Content="Закрыть" MaxHeight="25" Width="100" HorizontalAlignment="Right" Margin="0,0,20,0" Click="QuitButton_Click"/>
+        <ListView x:Name="mainList" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="1" />
+    </Grid>
+</Window>
